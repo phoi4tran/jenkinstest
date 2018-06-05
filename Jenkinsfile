@@ -1,10 +1,11 @@
-pipeline {
-    agent { docker { image 'node:6.3' } }
-    stages {
-        stage('build') {
-            steps {
-                sh 'npm --version'
-            }
-        }
-    }
+dockerBuild {
+    environment = 'golang:1.5.0'
+    mainScript = '''
+go version
+go build -v sum.go
+'''
+    postScript = '''
+ls -l
+./sum
+'''
 }
