@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'go run sum_test.go'
+                sh 'go run TestSums'
             }
         }
     }
